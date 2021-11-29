@@ -19,5 +19,8 @@ jobs:
       with:
         ref: ${{ env.INPUT_TAG }}
     - run: |
-        echo git rev-parse HEAD
-      
+        git rev-parse HEAD
+    - name: Set outputs       
+      run: echo "::set-output name=sha::$(git rev-parse HEAD)"
+    - name: Check outputs
+      run: echo ${{ steps.vars.outputs.sha }}
