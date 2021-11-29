@@ -14,7 +14,7 @@ jobs:
         shell: pwsh
     env:
       INPUT_TAG: ${{ github.event.inputs.release-tag }}
-      TAG_SHA: ${{ github.sha }}
+      TAG_SHA: ${{ git rev-parse HEAD }}
     steps:
     - uses: actions/checkout@v2
       with:
