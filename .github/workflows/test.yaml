@@ -13,9 +13,11 @@ jobs:
       run:
         shell: pwsh
     env:
-      INPUT_TAG: ${{ github.event.inputs.release-tag }}
-      TAG_SHA: ${{ git rev-parse HEAD }}
+      INPUT_TAG: ${{ github.event.inputs.release-tag }}   
     steps:
     - uses: actions/checkout@v2
       with:
         ref: ${{ env.INPUT_TAG }}
+    - run: |
+        echo "Git commit: ${{ git rev-parse HEAD }}"
+      
