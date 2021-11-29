@@ -13,7 +13,7 @@ jobs:
       run:
         shell: pwsh
     env:
-
+      INPUT_TAG: ${{ github.event.inputs.release-tag }}
       TAG_SHA: ${{ github.sha }}
     steps:
     - uses: actions/checkout@v2
