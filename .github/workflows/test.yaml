@@ -1,0 +1,21 @@
+name: deploy apim api from artifact test
+on:
+  workflow_dispatch:
+    inputs:
+      release-tag:
+        description: 'tag of the ordermanagement api to release'
+        required: true
+jobs:  
+  deploy:
+    name: Deploy APIM api to dev environment test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: pwsh
+    env:
+
+      TAG_SHA: ${{ github.sha }}
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ env.INPUT_TAG }}
