@@ -19,5 +19,5 @@ jobs:
       with:
         ref: ${{ env.INPUT_TAG }}
     - run: |
-        echo "Git commit: ${{ git rev-parse HEAD }}"
+        echo git rev-parse HEAD
       
